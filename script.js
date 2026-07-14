@@ -1,0 +1,1 @@
+(()=>{const m=document.querySelector('#menu'),n=document.querySelector('#nav');document.querySelector('#year').textContent=new Date().getFullYear();m.addEventListener('click',()=>{const o=n.classList.toggle('open');m.setAttribute('aria-expanded',o);m.textContent=o?'닫기':'메뉴'});n.addEventListener('click',e=>{if(e.target.closest('a'))m.click()});window.TetrisApp.initialize()})();
