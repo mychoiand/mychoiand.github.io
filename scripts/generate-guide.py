@@ -32,7 +32,7 @@ para('<strong>브랜치(branch)</strong>는 소스 작업의 갈래이며 main�
 h('3. 하위 페이지 파일 만들기')
 steps(['소스 저장소의 Code 탭을 엽니다. main 브랜치인지 확인합니다.','Add file → Create new file을 선택합니다.','파일 이름에 guides/memo/index.html을 입력합니다. /를 입력하면 상단 경로가 guides → memo → index.html로 나뉩니다.','편집 영역에 아래 코드를 붙여넣습니다. memo는 직접 실습할 새 폴더 이름입니다.'])
 img('06-add-file.jpg','Code 탭의 Add file → Create new file')
-code('<!doctype html>\n<html lang="ko">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<title>나의 메모</title>\n<link rel="stylesheet" href="../guide.css">\n<main>\n  <h1>나의 메모</h1>\n  <p>새 하위 페이지가 만들어졌습니다.</p>\n  <a href="../">가이드 목록</a>\n  <a href="../../">홈으로</a>\n</main>\n</html>')
+code('<!doctype html>\n<html lang="ko">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<title>나의 메모</title>\n<link rel="stylesheet" href="../guide.css?v=20260920-3">\n<main>\n  <h1>나의 메모</h1>\n  <p>새 하위 페이지가 만들어졌습니다.</p>\n  <a href="../">가이드 목록</a>\n  <a href="../../">홈으로</a>\n</main>\n</html>')
 para('파일 입력 예시의 경로와 코드는 다음 커밋 화면의 배경에서도 확인할 수 있습니다.')
 para('../는 한 단계 위 폴더입니다. 이 예시의 ../guide.css는 guides/guide.css를 가리킵니다. ../../는 두 단계 위인 홈페이지입니다. 한글 문장이 깨지면 UTF-8 설정을 확인합니다.')
 h('4. Commit으로 변경 저장하기')
@@ -75,7 +75,7 @@ title='GitHub Pages 처음부터 따라하기'
 toc='<details class="toc"><summary>단계별 목차</summary><ol>'+''.join('<li><a href="#'+i+'">'+t+'</a></li>' for i,t in re.findall(r'<h2 id="([^"]+)">(.*?)</h2>', ''.join(parts)))+'</ol></details>'
 
 (p/'guide.md').write_text('# '+title+'\n\n'+'\n\n'.join(md)+'\n',encoding='utf-8')
-(p/'index.html').write_text('<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+title+' | mychoiand</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../guide.css"></head><body><a class="skip" href="#main">본문으로 바로가기</a><header><a href="../../">포트폴리오 홈</a><a href="../">가이드 목록</a></header><main id="main"><h1>'+title+'</h1><p><a href="guide.md" download>Markdown 내려받기</a> · <a href="guide-with-screenshots.zip" download>MD + 화면 캡처 묶음</a></p>'+toc+''.join(parts)+'<nav class="next"><a href="../start/">페이지 구조 다시 보기</a><a href="../">가이드 목록</a></nav></main><footer>2026.09.20 · 실제 화면을 기준으로 작성한 공개 GitHub.com 안내</footer></body></html>',encoding='utf-8')
+(p/'index.html').write_text('<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+title+' | mychoiand</title><link rel="icon" href="data:,"><link rel="stylesheet" href="../guide.css?v=20260920-3"></head><body><a class="skip" href="#main">본문으로 바로가기</a><header><a href="../../">포트폴리오 홈</a><a href="../">가이드 목록</a></header><main id="main"><h1>'+title+'</h1><p><a href="guide.md" download>Markdown 내려받기</a> · <a href="guide-with-screenshots.zip" download>MD + 화면 캡처 묶음</a></p>'+toc+''.join(parts)+'<nav class="next"><a href="../start/">페이지 구조 다시 보기</a><a href="../">가이드 목록</a></nav></main><footer>2026.09.20 · 실제 화면을 기준으로 작성한 공개 GitHub.com 안내</footer></body></html>',encoding='utf-8')
 with zipfile.ZipFile(p/'guide-with-screenshots.zip','w',zipfile.ZIP_DEFLATED) as z:
  for f in [p/'guide.md',*sorted((p/'screenshots').glob('*.jpg'))]:z.write(f,str(f.relative_to(p)))
 print('HTML, Markdown, screenshot ZIP written')
