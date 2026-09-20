@@ -1,0 +1,3 @@
+# Public portfolio maintenance
+
+Preserve existing home sections, original artwork, scripts and Tetris behavior. Add documentation under guides/ using plain static HTML and relative links. Keep the existing navy/teal identity and Korean sans-serif 16px body. Use compact spacing by paragraph, heading and figure relationships. Apply frontend-design proportionately and verify actual desktop/mobile browser layouts. Capture real GitHub UI only when authenticated as necessary; never publish credentials, private company URLs or unverified screenshots. Record build/deployment and browser checks separately.
