@@ -11,7 +11,7 @@ def para(t):
 def steps(xs):
  parts.append('<ol>'+''.join('<li>'+x+'</li>' for x in xs)+'</ol>');md.append('\n'.join(str(i+1)+'. '+re.sub('<[^>]+>','',x) for i,x in enumerate(xs)))
 def img(f,c):
- parts.append(f'<figure><a href="screenshots/{f}" target="_blank" rel="noopener"><img src="screenshots/{f}" alt="{c}" loading="lazy"></a><figcaption>{c} · 클릭하면 원본 크기로 열립니다.</figcaption></figure>');md.append(f'![{c}](screenshots/{f})\n\n{c}')
+ parts.append(f'<figure><a href="screenshots/{f}" target="_blank" rel="noopener"><img src="screenshots/{f}" alt="{c}" width="1280" height="1000" loading="lazy"></a><figcaption>{c} · 클릭하면 원본 크기로 열립니다.</figcaption></figure>');md.append(f'![{c}](screenshots/{f})\n\n{c}')
 def code(t,lang='html'):
  parts.append('<pre><code>'+html.escape(t)+'</code></pre>');md.append('```'+lang+'\n'+t+'\n```')
 def link(url,label):
